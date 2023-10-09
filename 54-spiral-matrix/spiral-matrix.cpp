@@ -1,37 +1,44 @@
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        int rowBeg = 0, colBeg;
-        int rowEnd = matrix.size()-1;
-        int colEnd = matrix[0].size()-1;
         vector<int>ans;
-        while(true){
-            for(int j = colBeg;j<=colEnd;j++){
-                ans.push_back(matrix[rowBeg][j]);
+        int row=matrix.size();
+        int col=matrix[0].size();
+
+        int count=0;
+        int total=row*col;
+
+        // index initialisation//
+        int startingRow=0;
+        int startingCol=0;
+        int endingRow=row-1;
+        int endingCol=col-1;
+
+        while(count<total){
+            for(int index=startingCol; count<total && index<=endingCol; index++){
+                ans.push_back(matrix[startingRow] [index]);
+                count++;
             }
-            if(++rowBeg>rowEnd){
-                break;
+            startingRow++;
+
+            for(int index=startingRow; count<total && index<=endingRow; index++){
+                ans.push_back(matrix[index] [endingCol]);
+                count++;
             }
-            for(int i = rowBeg;i<=rowEnd;i++){
-                ans.push_back(matrix[i][colEnd]);
+            endingCol--;
+
+            for(int index=endingCol; count<total && index>=startingCol; index--){
+                ans.push_back(matrix[endingRow] [index]);
+                count++;
             }
-            if(--colEnd<colBeg){
-                break;
+            endingRow--;
+
+            for(int index=endingRow; count<total && index>=startingRow; index--){
+                ans.push_back(matrix[index] [startingCol]);
+                count++;
             }
-            for(int j=colEnd;j>=colBeg;j--){
-                ans.push_back(matrix[rowEnd][j]);
-            }
-            if(--rowEnd<rowBeg){
-                break;
-            }
-            for(int i=rowEnd;i>=rowBeg;i--){
-                ans.push_back(matrix[i][colBeg]);
-            }
-            if(++colBeg>colEnd){
-                break;
-            }
+            startingCol++;
         }
         return ans;
-
     }
 };
