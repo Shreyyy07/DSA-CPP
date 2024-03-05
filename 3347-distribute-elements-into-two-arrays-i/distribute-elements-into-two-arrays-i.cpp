@@ -13,9 +13,11 @@ public:
                 arr2.push_back(nums[i]);
             }
         }
-        ans.insert(ans.end(),arr1.begin(),arr1.end());
-        ans.insert(ans.end(),arr2.begin() ,arr2.end());
-        return ans;
+       
+       ans=arr1; //yha arr1 ke sare elements ans array me dalk diye //
+     for(auto i:arr2)    //then ek loop chalaya arr2 ke elements ke liye//
+           ans.push_back(i);  //fir arr2 ke elements ko bhi push kr diya ans array mei//
+           return ans;
         
     }
 };
