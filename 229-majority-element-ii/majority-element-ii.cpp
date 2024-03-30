@@ -16,10 +16,10 @@ public:
             count2=1;
             el2=nums[i];
         }
-        else if(nums[i]==el1){
+        else if(el1==nums[i]){
             count1++;
         }
-        else if(nums[i]==el2){
+        else if(el2==nums[i]){
             count2++;
         }
         else {
@@ -33,8 +33,8 @@ vector<int>ans;
 count1=0;
 count2=0;
 for(int i=0; i<n; i++){
-    if(nums[i]==el1)count1++;
-    if(nums[i]==el2)count2++;
+    if(el1==nums[i])count1++;
+    if(el2==nums[i])count2++;
 }
         int mini=(n/3)+1;
         if(count1>=mini){
