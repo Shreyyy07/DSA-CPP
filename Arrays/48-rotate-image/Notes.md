@@ -1,1 +1,0 @@
-<h2>rotate-image Notes</h2><hr>[ Time taken: 12 m 44 s ]
