@@ -9,69 +9,65 @@
  * };
  */
 class Solution {
-public:
 
- ListNode* getMid(ListNode* head){
-    ListNode* slow=head;
-    ListNode* fast=head->next;
+    private:
+    ListNode* getMid(ListNode* head){
+        ListNode* slow=head;
+        ListNode* fast=head->next;
 
-    while(fast!=NULL && fast->next!=NULL){
-        // if(fast->next==NULL){
-        //     return NULL;
-        // }
-        slow=slow->next;
-        fast=fast->next->next;
-    }
-    return slow;
-}
-
- ListNode* reverse(ListNode * head){
-
-      ListNode* prev=NULL;
-       ListNode* curr=head;
-        ListNode* next=NULL;
-
-        while(curr!=NULL){
-            next=curr->next;
-            curr->next=prev;
-            prev=curr;
-            curr=next;
+        while(fast!=NULL && fast->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
         }
-        return prev;
- }
+        return slow;
+    }
 
+    ListNode* reverse(ListNode* head){
+
+    ListNode* prev=NULL;
+    ListNode* curr=head;
+    ListNode* next=NULL;
+
+    while(curr!=NULL){
+        next=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=next;
+    }
+    return prev;
+    }
+
+
+public:
     bool isPalindrome(ListNode* head) {
-
-        // base case//
         if(head->next==NULL){
             return true;
         }
 
-        // step1- get middle 
-         ListNode* mid=getMid(head);
+        // get the middle element
+        ListNode* middle=getMid(head);
 
-        //  step2- reverse the list after mid
-         ListNode* ptr=mid->next;
-         mid->next=reverse(ptr);
+        // reverse the list after the mid
+        ListNode* temp=middle->next;
+        middle->next=reverse(temp);
 
-        //  step3- comapre the values
-         ListNode* head1=head;
-         ListNode* head2=mid->next;
+        // comapre the two lists
+        ListNode* head1=head;
+        ListNode* head2=middle->next;
 
-         while(head2!=NULL){
-             if(head1->val!=head2->val){
-                 return 0;
-             }
-             else{
-                 head1=head1->next;
-                 head2=head2->next;
-             }
-         }
-
-        //  step4- sidhi bhi krni pdegi na string
-        ptr=mid->next;
-        mid->next=reverse(ptr);
-        return 1;
+        while(head2!=NULL){
+            if(head1->val!=head2->val){
+                return false;
+            }
+            else{
+            head1=head1->next;
+            head2=head2->next;
+            }
+        }
+        // again reverse the lsit
+        temp=middle->next;
+        middle->next=reverse(temp);
+        return true;
 
     }
 };
