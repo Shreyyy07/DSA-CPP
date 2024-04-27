@@ -8,7 +8,6 @@ public:
             char ch=s[i];
             arr[ch-'a']++;
         }
-
         for(int i=0; i<n; i++){
             char ch=s[i];
             if(arr[ch-'a']==1){
@@ -16,6 +15,6 @@ public:
             }
         }
         return -1;
-        
+
     }
 };
