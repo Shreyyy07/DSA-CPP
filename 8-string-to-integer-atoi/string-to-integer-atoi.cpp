@@ -20,22 +20,15 @@ public:
 
         // Parse integer - converting char to integers 
         while(i < s.length() && isdigit(s[i])) {
-            ans = ans * 10 + (s[i] - '0');
+            int digit (s[i] - '0');
             i++;
 
             // Check for overflow
-            if(ans * sign < INT_MIN){
-                return INT_MIN;
-            }
-            else if(ans * sign > INT_MAX){
-                return INT_MAX;
-            }
-            // i++;
-        //     else{
-        //         return ans*sign;
-        // }
-        }
+           if (ans > INT_MAX / 10 || (ans == INT_MAX / 10 && digit > 7))
+                return (sign == 1) ? INT_MAX : INT_MIN;
 
-        return (ans * sign);
+            ans = ans * 10 + digit;
+        }
+        return (ans*sign);
     }
 };
