@@ -5,7 +5,7 @@ public:
             return 0;
 
         int sign = 1;
-        long ans = 0; 
+        double ans = 0; 
         int i = 0;
 
         // Remove leading whitespace
