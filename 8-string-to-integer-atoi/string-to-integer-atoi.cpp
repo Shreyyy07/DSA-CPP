@@ -5,7 +5,7 @@ public:
             return 0;
 
         int sign = 1;
-        long long ans = 0; 
+        long ans = 0; 
         int i = 0;
 
         // Remove leading whitespace
@@ -30,8 +30,12 @@ public:
             else if(ans * sign > INT_MAX){
                 return INT_MAX;
             }
+            // i++;
+        //     else{
+        //         return ans*sign;
+        // }
         }
 
-        return ans * sign;
+        return (ans * sign);
     }
 };
