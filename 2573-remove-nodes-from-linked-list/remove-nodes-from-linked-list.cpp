@@ -1,47 +1,36 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-
 class Solution {
 public:
-ListNode* reverseList(ListNode* head) {
-        ListNode* prev=NULL;
-        ListNode* next=NULL;
-        ListNode* curr=head;
+    ListNode* reverseList(ListNode* head) {
+        ListNode* prev = nullptr;
+        ListNode* current = head;
 
-        while(curr!=NULL){
-            next=curr->next;
-            curr->next=prev;
-            prev=curr;
-            curr=next;
+        while (current != nullptr) {
+            ListNode* nextNode = current->next;
+            current->next = prev;
+            prev = current;
+            current = nextNode;
         }
-      return prev;
-}
+
+        return prev;
+    }
 
     ListNode* removeNodes(ListNode* head) {
-        ListNode* reverseHead=reverseList(head);
+        ListNode* reversedHead = reverseList(head);
 
-        ListNode* curr=reverseHead;
-        int max=INT_MIN;
-        ListNode* prev=NULL;
+        ListNode* current = reversedHead;
+        int maxValue = INT_MIN;
+        ListNode* prev = nullptr;
 
-        while(curr!=NULL){
-            if(curr->val < max){
-                prev->next=curr->next;
+        while (current != nullptr) {
+            if (current->val < maxValue) {
+                prev->next = current->next;
+            } else {
+                maxValue = current->val;
+                prev = current;
             }
-            else{
-                max=curr->val;
-                prev = curr;
-            }
-             curr=curr->next;
+            current = current->next;
         }
-        return reverseList(reverseHead);
+
+        return reverseList(reversedHead);
     }
 };
