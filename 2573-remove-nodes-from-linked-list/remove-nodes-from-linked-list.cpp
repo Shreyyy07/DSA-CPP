@@ -11,7 +11,7 @@
 
 class Solution {
 public:
-    ListNode* removeNodes(ListNode* head) {
+ListNode* reverseList(ListNode* head) {
         ListNode* prev=NULL;
         ListNode* next=NULL;
         ListNode* curr=head;
@@ -22,36 +22,26 @@ public:
             prev=curr;
             curr=next;
         }
-        // now reassigning the values
-        head=prev;
-        prev=NULL;
-        curr=head;
+      return prev;
+}
 
-        ListNode* max=head;
+    ListNode* removeNodes(ListNode* head) {
+        ListNode* reverseHead=reverseList(head);
 
-        while(curr!=NULL && curr->next!=NULL){
-            if(curr->next->val < max->val){
-                curr->next=curr->next->next;
-                // curr->next->val=NULL;
-                
-            }
-            else{
-                max=curr->next;
-                curr=curr->next;
-            }
-        }
-
-//reverse linked list ko sidha kr doh
-         prev=NULL;
-         next=NULL;
-         curr=head;
+        ListNode* curr=reverseHead;
+        int max=INT_MIN;
+        ListNode* prev=NULL;
 
         while(curr!=NULL){
-            next=curr->next;
-            curr->next=prev;
-            prev=curr;
-            curr=next;
-        }  
-        return prev;
+            if(curr->val < max){
+                prev->next=curr->next;
+            }
+            else{
+                max=curr->val;
+                prev = curr;
+            }
+             curr=curr->next;
+        }
+        return reverseList(reverseHead);
     }
 };
