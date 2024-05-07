@@ -11,12 +11,11 @@
 class Solution {
 public:
 
-  ListNode* doubleIt(ListNode* head) {
-
+ 
+ ListNode* reverse(ListNode* head) {
     ListNode* prev=NULL;
     ListNode* curr=head;
     ListNode* next=NULL;
-    int carry=0;
 
     while(curr!=NULL){
         next=curr->next;
@@ -24,10 +23,14 @@ public:
         prev=curr;
         curr=next;
     }
-        head=prev;
+        return prev;
+}
 
-        curr=head;
-
+ ListNode* doubleIt(ListNode* head) {
+    ListNode* reverseHead=reverse(head);
+    ListNode* curr= reverseHead;
+    int carry=0;
+    
      while(curr!=NULL){
             int digit=curr->val;
             int product=2*digit+carry;
@@ -43,18 +46,7 @@ public:
             curr=curr->next;
            
         }
-
-        prev=NULL;
-       curr=head;
-       next=NULL;
-
-    while(curr!=NULL){
-        next=curr->next;
-        curr->next=prev;
-        prev=curr;
-        curr=next;
- }
-    return prev;
+        return reverse(reverseHead);
         
     }
 };
