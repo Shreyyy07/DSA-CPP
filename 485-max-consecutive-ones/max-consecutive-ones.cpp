@@ -1,6 +1,7 @@
 class Solution {
 public:
     int findMaxConsecutiveOnes(vector<int>& nums) {
+
         int max_count=INT_MIN;
          int count=0;
        
@@ -8,17 +9,15 @@ public:
 
             if(nums[i]==1){
                 count++;
-                max_count=max(max_count,count);
             }
             else{
+                 max_count=max(max_count,count);
                 count=0;
             }
             }
             
-            if(max_count == INT_MIN)
-            return 0;
-        else
-            return max_count;
-        
+            if(max_count<count)
+            return count;
+       return max_count;
     }
 };
