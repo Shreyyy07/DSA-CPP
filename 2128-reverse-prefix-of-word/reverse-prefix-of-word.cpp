@@ -11,6 +11,9 @@ public:
                 break;
             }
         }
+        if(index==-1){
+            return word;
+        }
         reverse(word.begin(),word.begin()+index+1);
         return word;
         
