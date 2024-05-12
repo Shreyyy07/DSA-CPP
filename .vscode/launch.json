@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/DSA-CPP/Linked list/237-delete-node-in-a-linked-list",
-      "program": "d:/DSA-CPP/Linked list/237-delete-node-in-a-linked-list/build/Debug/outDebug",
+      "cwd": "d:/DSA-CPP/Strings/2128-reverse-prefix-of-word",
+      "program": "d:/DSA-CPP/Strings/2128-reverse-prefix-of-word/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
