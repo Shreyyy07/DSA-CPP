@@ -19,8 +19,6 @@ public:
         int lh=maxDepth(root->left);
         int rh=maxDepth(root->right);
 
-        ans=max(lh,rh)+1;
-        
-        return ans;
+        return 1+max(lh,rh);
     }
 };
