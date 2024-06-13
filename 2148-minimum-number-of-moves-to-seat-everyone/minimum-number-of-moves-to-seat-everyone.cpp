@@ -8,8 +8,7 @@ public:
         int sum=0;
 
         for(int i=0; i<seats.size(); i++){
-            int diff=abs(students[i]-seats[i]);
-               sum=sum+diff;
+            sum+=abs(students[i]-seats[i]);
         }
       
         return sum;
