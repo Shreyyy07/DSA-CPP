@@ -10,8 +10,9 @@ public:
                 return 1;
             }
             else if(nums[s]== nums[mid] && nums[mid]==nums[e]){
-                s++;
-                e--;
+                s=s+1;
+                e=e-1;
+                continue;
             }
 
             else if(nums[s]<=nums[mid]){
