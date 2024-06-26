@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/DSA-CPP/Arrays/1217-relative-sort-array",
-      "program": "d:/DSA-CPP/Arrays/1217-relative-sort-array/build/Debug/outDebug",
+      "cwd": "d:/DSA-CPP/Binary Search/3476-find-minimum-operations-to-make-all-elements-divisible-by-three",
+      "program": "d:/DSA-CPP/Binary Search/3476-find-minimum-operations-to-make-all-elements-divisible-by-three/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
