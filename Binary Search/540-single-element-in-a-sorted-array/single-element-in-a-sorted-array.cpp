@@ -1,29 +1,36 @@
 class Solution {
 public:
-    int singleNonDuplicate(vector<int>& nums) {
+    int singleNonDuplicate(vector<int>& arr) {
+    int n=arr.size();
 
-        int n=nums.size();
-        if(n==1){
-            return nums[0];
-        }
+    int low=1; int high=n-2;
+    if(n==1) return arr[0];
+    if(arr[0]!=arr[1]) return arr[0];
+    if(arr[n-1]!=arr[n-2]) return arr[n-1];
 
-        for(int i=0; i<nums.size(); i++){
-            if(i==0){
-                if(nums[i]!=nums[i+1]){
-                    return nums[i];
-                }
-            }
-            else if(i==n-1) {
-            if(nums[i]!=nums[i-1]){
-                return nums[i];
-            }
-            }
-            else {
-                if(nums[i]!=nums[i+1] && nums[i]!=nums[i-1]){
-                    return nums[i];
-                }
-            }
+    while(low<=high)
+    {
+        int mid=(low+high)/2;
+
+        if(arr[mid]!=arr[mid-1] && arr[mid]!=arr[mid+1]) // single element
+        return arr[mid];
+
+
+        // even ---> odd (Left half pairs)
+        if((mid%2==0 && arr[mid]==arr[mid+1]) || (mid%2==1 && arr[mid]==arr[mid-1])) //We are in left half
+        {
+            // eliminate left half
+            low=mid+1;
+        } 
+        // odd----->even (right half pairs)
+        else // right half contains single element
+        {   
+            // eliminate the left half
+            high=mid-1;
         }
-            return -1;
+      
+    }
+
+    return -1;
     }
 };
