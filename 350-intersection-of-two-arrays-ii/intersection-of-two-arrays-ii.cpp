@@ -6,16 +6,16 @@ public:
         // created a hashmap to store the count of the elements
         vector<int>ans;
 
-        for(int i:nums1){
+        for(int i=0; i<nums1.size(); i++){
             //traverse through the elements and count the occ of each element
-            count[i]++;
+            count[nums1[i]]++;
         }
-        for(int i:nums2){
+        for(int j=0; j<nums2.size(); j++){
             //now check if the ele of 1st array is found in second , also check for its occ
-            if(count[i]>0){
-                ans.push_back(i);
+            if(count[nums2[j]]>0){
+                ans.push_back(nums2[j]);
                 // if the occ is greater than 0 than push the ele 
-                count[i]--;
+                count[nums2[j]]--;
                 // after pushing the ele itself decrement the count
             }
         }
