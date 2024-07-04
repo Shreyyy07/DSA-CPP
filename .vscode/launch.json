@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/DSA-CPP/Binary Search/3476-find-minimum-operations-to-make-all-elements-divisible-by-three",
-      "program": "d:/DSA-CPP/Binary Search/3476-find-minimum-operations-to-make-all-elements-divisible-by-three/build/Debug/outDebug",
+      "cwd": "d:/DSA-CPP/BST/102-binary-tree-level-order-traversal",
+      "program": "d:/DSA-CPP/BST/102-binary-tree-level-order-traversal/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
