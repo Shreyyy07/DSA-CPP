@@ -19,10 +19,8 @@ bool Sym(TreeNode* r1, TreeNode* r2){
     else if(r1->val!=r2->val){
         return false;
     }
-    else {
     return Sym(r1->left,r2->right)
     && Sym(r1->right,r2->left);
-    }
 }
 
 public:
