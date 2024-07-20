@@ -12,23 +12,20 @@
 class Solution {
 public:
 
-void rightSide(TreeNode* root, int lvl, vector<int>&ans){
+void rightView(TreeNode* root , int lvl,vector<int>&ans){
     if(root==NULL){
         return ;
     }
-
-    if(ans.size()==lvl){
-        ans.push_back(root->val);
-    }
-    rightSide(root->right,lvl+1,ans);
-    rightSide(root->left,lvl+1,ans);
-
+    if(lvl==ans.size()){
+        ans.push_back(root->val);    
+        }
+        rightView(root->right,lvl+1,ans);
+        rightView(root->left,lvl+1,ans);
 }
 
     vector<int> rightSideView(TreeNode* root) {
-        vector<int>ans;
-        rightSide(root,0,ans);        
-
-        return ans;
+     vector<int>ans1;
+     rightView(root,0,ans1);
+     return ans1;   
     }
 };
