@@ -30,8 +30,8 @@ public:
 
         for(int i=0; i<size; i++){
 
-           int curr_id=q.front().second-min;
-        //    curr_id-=min;
+           int curr_id=q.front().second;
+           curr_id-=min;
             TreeNode* node=q.front().first;
             q.pop();
 
