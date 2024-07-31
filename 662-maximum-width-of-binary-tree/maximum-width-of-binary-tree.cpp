@@ -29,10 +29,10 @@ public:
         int first,last;
 
         for(int i=0; i<size; i++){
-           
+
+           int curr_id=q.front().second-min;
+        //    curr_id-=min;
             TreeNode* node=q.front().first;
-             int curr_id=q.front().second;
-            curr_id-=min;
             q.pop();
 
             if(i==0){
