@@ -13,7 +13,8 @@ class Solution {
 public:
     TreeNode* insertIntoBST(TreeNode* root, int val) {
         if(root==NULL){
-            return new TreeNode(val);
+            root=new TreeNode(val);
+            return root;
         }
             if(root->val>val){
                root->left=insertIntoBST(root->left,val);
