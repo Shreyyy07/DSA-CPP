@@ -16,6 +16,10 @@ public:
 
         while(temp!=NULL){
 
+            if(root==NULL){
+                return root;
+            }
+
         if(temp->val==val){
             return temp;
         }
