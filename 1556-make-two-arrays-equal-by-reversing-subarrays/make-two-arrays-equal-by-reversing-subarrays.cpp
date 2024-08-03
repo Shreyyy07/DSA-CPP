@@ -1,16 +1,20 @@
 class Solution {
 public:
     bool canBeEqual(vector<int>& target, vector<int>& arr) {
-
-        sort(target.begin(),target.end());
-        sort(arr.begin(),arr.end());
-
-        for(int i=0; i<target.size(); i++){     
-        if(target[i]!=arr[i]){
-                return false;
-        }
-        }
-        return true;
         
+        if(target.size()!=arr.size()){
+            return false;
+        }
+        unordered_map<int,int>targetC;
+        unordered_map<int,int>arrC;
+
+        for(int i:target){
+            targetC[i]++;
+        }
+        for(int i:arr){
+            arrC[i]++;
+        }
+        return targetC==arrC;
+
     }
 };
