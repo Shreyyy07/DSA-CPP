@@ -13,14 +13,14 @@ class Solution {
 public:
     int kthSmallest(TreeNode* root, int k) {
         int count=0;
-        int ans;
+        int ans=INT_MAX;
 
         traverse(root,k,count,ans);
         return ans;
     }
     void traverse(TreeNode* root,int k,int &count,int &ans){
 
-        if(root==NULL){
+        if(root==NULL || count>=k){
             return ;
         }
         traverse(root->left,k,count,ans);
@@ -28,6 +28,7 @@ public:
 
         if(count==k){
             ans=root->val;
+            return;
         }
         traverse(root->right,k,count,ans);
     }
