@@ -4,26 +4,25 @@ public:
         int fiveD=0;
         int tenD=0;
 
-        for(int i:bills){
-            if(i==5){
-                fiveD++;
+        for(int i=0; i<bills.size(); i++){
+            if(bills[i]==5){
+               fiveD++;
             }
-           else if(i==10){
-            if(fiveD > 0){
-                fiveD--;
-                tenD++;
-            }
-            else {
-                return false;
-            }
-           }
-
-            else{
-                if(fiveD > 0 && tenD > 0){
-                    fiveD--;
-                    tenD--;
+            else if(bills[i]==10){
+                if(fiveD>=1){
+                    tenD++;
+                   fiveD--;
                 }
-                 else if(fiveD > 2){
+                else {
+                    return false;
+                }
+            }
+           else{
+                if(tenD>=1 && fiveD>=1){
+                    tenD--;
+                   fiveD--;
+                }
+                else if(fiveD>=3){
                     fiveD-=3;
                 }
                 else {
