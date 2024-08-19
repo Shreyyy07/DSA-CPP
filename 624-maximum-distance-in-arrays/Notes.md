@@ -1,1 +1,1 @@
-<h2>maximum-distance-in-arrays Notes</h2><hr>[ Time taken: 13 s ]
+<h2>maximum-distance-in-arrays Notes</h2><hr>[ Time taken: 11 m 20 s ]
