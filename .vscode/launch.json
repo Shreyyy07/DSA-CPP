@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/DSA-CPP/Daily Challenges/2727-number-of-senior-citizens",
-      "program": "d:/DSA-CPP/Daily Challenges/2727-number-of-senior-citizens/build/Debug/outDebug",
+      "cwd": "d:/DSA-CPP/Maths_fun/476-number-complement",
+      "program": "d:/DSA-CPP/Maths_fun/476-number-complement/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
