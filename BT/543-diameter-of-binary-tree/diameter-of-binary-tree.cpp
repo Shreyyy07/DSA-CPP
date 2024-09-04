@@ -12,18 +12,25 @@
 class Solution {
 public:
 int height(TreeNode* root,int &dia){
+
+    int ans=INT_MIN;
     if(root==NULL){
         return 0;
     }
-    int leftH=height(root->left,dia);
-    int rightH=height(root->right,dia);
+    int lh=height(root->left,dia);
+    int rh=height(root->right,dia);
 
-    dia=max(dia,leftH+rightH);
-    return max(leftH,rightH)+1;
+    dia=max(dia,(lh+rh));
+    ans=max(lh,rh)+1;
+    return ans;
 }
+
     int diameterOfBinaryTree(TreeNode* root) {
-        int dia=0;
-        height(root,dia);
-        return dia;
+      
+       int dia=0;
+       height(root,dia);
+
+       return dia;
+
     }
 };

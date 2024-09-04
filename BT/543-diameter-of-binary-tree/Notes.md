@@ -1,1 +1,1 @@
-<h2>diameter-of-binary-tree Notes</h2><hr>[ Time taken: 8 m 9 s ]
+<h2>diameter-of-binary-tree Notes</h2><hr>[ Time taken: 7 m 29 s ]
