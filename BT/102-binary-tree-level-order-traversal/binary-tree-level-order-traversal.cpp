@@ -21,26 +21,25 @@ public:
         }
 
         while(!q.empty()){
+
+            vector<int>result;
             int size=q.size();
-            vector<int>levelOrder;
 
             for(int i=0; i<size; i++){
-                 TreeNode* root=q.front();
-                 q.pop();
+            TreeNode* temp=q.front();
+            q.pop();
 
-                 levelOrder.push_back(root->val);
+            result.push_back(temp->val);
 
-                if(root->left){
-                 q.push(root->left);
-                }
-
-                if(root->right){
-                q.push(root->right);
-                }
+            if(temp->left!=NULL){
+                q.push(temp->left);
             }
-                    ans.push_back(levelOrder);
+            if(temp->right!=NULL){
+                q.push(temp->right);
+            }
         }
-        return ans;
-
+        ans.push_back(result);
+        }  
+       return ans;
     }
 };
