@@ -12,7 +12,7 @@ public:
                     zeroCount++;
                 }
 
-                while(zeroCount > k){
+                if(zeroCount > k){
                  if(nums[left]==0){
                     zeroCount--;
                  }
