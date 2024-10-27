@@ -18,7 +18,8 @@ public:
                  left++;
             }
             if(count <= k){
-                maxLen=max(maxLen,right-left+1);
+                int len=right-left+1;
+                maxLen=max(maxLen,len);
             }
             right++;
         }
