@@ -1,22 +1,18 @@
 class Solution {
 public:
     string addSpaces(string s, vector<int>& spaces) {
+        string result;
+        int j = 0;
 
-         int n=s.size();
-         int m=spaces.size();
-        
-        string ans(n+m,' ');
-        int j=0;
-
-        for(int i=0; i<s.length(); i++){
-
-            if(j < m && i==spaces[j]){
-                ans[i+j]=' ';
+        for (int i = 0; i < s.size(); i++) {
+            // Check if the current index matches the next space index
+            if (j < spaces.size() && i == spaces[j]) {
+                result += ' ';  // Add a space before the character
                 j++;
             }
-            ans[i+j]=s[i];
+            result += s[i];  // Add the current character
         }
-        return ans;
-        
+
+        return result;
     }
 };
