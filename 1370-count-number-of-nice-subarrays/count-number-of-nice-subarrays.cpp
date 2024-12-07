@@ -4,8 +4,9 @@ public:
         int sum=0;
         int count = 0;
         int left = 0;
+        int right=0;
         
-        for (int right = 0; right < nums.size(); right++) {
+        while(right<nums.size()) {
             sum += nums[right] % 2;
            while(sum > k){
             sum -= nums[left] % 2;
@@ -13,6 +14,7 @@ public:
            }
           
             count += right - left + 1; // Count subarrays ending at right
+            right++;
         }
         
         return count;
