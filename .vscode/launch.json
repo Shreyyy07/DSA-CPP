@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/DSA-CPP/Arrays/1-two-sum",
-      "program": "d:/DSA-CPP/Arrays/1-two-sum/build/Debug/outDebug",
+      "cwd": "d:/DSA-CPP/Strings/3-longest-substring-without-repeating-characters",
+      "program": "d:/DSA-CPP/Strings/3-longest-substring-without-repeating-characters/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
