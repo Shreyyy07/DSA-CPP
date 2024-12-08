@@ -1,26 +1,27 @@
 class Solution {
 public:
-    int atMostKOdd(vector<int>& nums, int k) {
+   
+    int solve(vector<int>& nums, int k){
+         int l=0;
+        int r=0;
+        int cnt=0;
         int sum=0;
-        int count = 0;
-        int left = 0;
-        int right=0;
-        
-        while(right<nums.size()) {
-            sum += nums[right] % 2;
+
+        while(r < nums.size()){
+           sum += nums[r] % 2;
+
            while(sum > k){
-            sum -= nums[left] % 2;
-            left++;
+            sum-=nums[l] % 2;
+                l++;
+            }
+            cnt+=r-l+1;
+            r++;
            }
-          
-            count += right - left + 1; // Count subarrays ending at right
-            right++;
-        }
-        
-        return count;
+        return cnt;
     }
 
-    int numberOfSubarrays(vector<int>& nums, int k) {
-        return atMostKOdd(nums, k) - atMostKOdd(nums, k - 1);
+     int numberOfSubarrays(vector<int>& nums, int k) {
+        return solve(nums,k)-solve(nums,k-1);
     }
+       
 };
