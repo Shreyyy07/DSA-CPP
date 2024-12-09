@@ -1,21 +1,49 @@
+
+                                        // BRUTE FORCE 
+
+// class Solution {
+// public:
+//     int numberOfSubstrings(string s) {
+//         int cnt=0;
+//         int n=s.length();
+    
+
+//         for(int i=0; i<n; i++){
+
+//             vector<int>hash(3,0);
+              
+//             for(int j=i; j<n; j++){
+//                 hash[s[j]-'a']=1;
+
+//                 if(hash[0] + hash[1] + hash[2]==3){
+//                     cnt=cnt+(n-j);
+//                     break;
+//                 }
+//             }
+//         }
+//         return cnt;
+//     }
+// };
+                                        // OPTIMIZE APPROACH //
+
 class Solution {
 public:
-   
     int numberOfSubstrings(string s) {
-        int i=0,j=0,n=s.length(), count=0;
-        int m[3]={0,0,0};
+        int l=0,r=0;
+        int cnt=0;
+        int n=s.length();
+        int hash[3]={0,0,0};
 
-        while(j<n)
-        {
-            m[s[j]-'a']++;
+        while(r<n){
+            hash[s[r]-'a']++;
 
-            while(m[0] && m[1] && m[2])
-                count+= n-j,
-                m[s[i++]-'a']--;
-            
-            j++;
+            while(hash[0] && hash[1] && hash[2]){
+                cnt+=n-r;
+                hash[s[l]-'a']--;
+                l++;
+            }
+               r++;
         }
-
-        return count;
+        return cnt;
     }
-};
+    };
