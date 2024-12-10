@@ -49,10 +49,7 @@ public:
 
     int numberOfSubarrays(vector<int>& nums, int k) {
 
-        int x=solve(nums,k);
-        int y=solve(nums,k-1);
-
-        return x-y;
+        return solve(nums,k)-solve(nums,k-1);
     }
 };
 
