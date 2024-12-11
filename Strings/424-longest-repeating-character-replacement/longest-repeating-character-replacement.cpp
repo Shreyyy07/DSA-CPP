@@ -2,26 +2,25 @@ class Solution {
 public:
     int characterReplacement(string s, int k) {
 
-        int maxLen=0;
+        int l=0,r=0;
+        int maxlen=0;
+        int change=0;
+        int n=s.length();
         int maxF=0;
-        int len=0;
+        unordered_map<char,int>mapp;
 
-        for(int i=0; i<s.length(); i++){
-            int hash[26]={0};
-            for(int j=i; j<s.length(); j++){
-                hash[s[j]-'A']++;
+       while(r<n){
 
-                maxF=max(maxF,hash[s[j]-'A']);
-                len=(j-i+1)-maxF;
-
-            if(len<=k){
-                maxLen=max(maxLen,j-i+1);
-            }
-            else{
-                break;
-            }
+            mapp[s[r]]++;
+             maxF=max(maxF,mapp[s[r]]);
+           
+           if((r-l+1)-maxF > k){
+            mapp[s[l]]--;
+            l++;
+           }
+            maxlen=max(maxlen,r-l+1);    
+                r++;
         }
-        }
-        return maxLen;
+        return maxlen;
     }
 };
