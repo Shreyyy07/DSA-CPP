@@ -46,7 +46,7 @@ public:
                 }
                 l++;
             }
-                maxlen=max(maxlen,cnt);
+                maxlen=max(maxlen,r-l+1);
         }
         return maxlen;
     }
