@@ -34,7 +34,7 @@ public:
         int cnt=0;
         unordered_map<int,int>mapp;
 
-        for(int r=0; r<fruits.size(); r++){
+        while(r<fruits.size()){
             mapp[fruits[r]]++;
             cnt++;
 
@@ -47,6 +47,7 @@ public:
                 l++;
             }
                 maxlen=max(maxlen,r-l+1);
+                r++;
         }
         return maxlen;
     }
