@@ -34,7 +34,7 @@ class Solution {
     while(r<nums.size()){
         mapp[nums[r]]++;
 
-        while(mapp.size() > k){
+        while( l<=r && mapp.size() > k){
            mapp[nums[l]]--;
            if(mapp[nums[l]]==0){
             mapp.erase(nums[l]);
