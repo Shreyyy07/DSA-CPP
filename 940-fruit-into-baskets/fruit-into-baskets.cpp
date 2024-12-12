@@ -36,17 +36,19 @@ public:
 
         while(r<fruits.size()){
             mapp[fruits[r]]++;
-            cnt++;
+            // cnt++;
 
             while(mapp.size() > 2){
                 mapp[fruits[l]]--;
-                cnt--;
+                // cnt--;
                 if(mapp[fruits[l]]==0){
                     mapp.erase(fruits[l]);
                 }
                 l++;
             }
+            if(mapp.size()<=2){
                 maxlen=max(maxlen,r-l+1);
+        }
                 r++;
         }
         return maxlen;
