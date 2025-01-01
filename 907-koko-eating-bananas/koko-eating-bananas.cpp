@@ -11,6 +11,7 @@ long long CaltotalHrs(vector<int>& piles, int h){
 }
 
     int minEatingSpeed(vector<int>& piles, int h) {
+        int ans;
         int low=1;
         int high=*max_element(piles.begin(),piles.end());
 
@@ -19,6 +20,7 @@ long long CaltotalHrs(vector<int>& piles, int h){
            long long totalHrs=CaltotalHrs(piles,mid);
 
             if(totalHrs <= h){
+                ans=mid;
                 high=mid-1;
             }
             else{
