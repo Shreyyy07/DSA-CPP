@@ -1,14 +1,6 @@
 class Solution {
 public:
- // max element ke liye fun //
-int maxEle(vector<int>& piles){
-    int maxi=INT_MIN;
 
-    for(int i=0; i<piles.size(); i++){
-        maxi=max(maxi,piles[i]);
-    }
-    return maxi;
-}
 // ceil value lene ke liye function //
 long long CaltotalHrs(vector<int>& piles, int h){
     long long totalHour=0;
@@ -20,7 +12,7 @@ long long CaltotalHrs(vector<int>& piles, int h){
 
     int minEatingSpeed(vector<int>& piles, int h) {
         int low=1;
-        int high=maxEle(piles);
+        int high=*max_element(piles.begin(),piles.end());
 
         while(low<=high){
             int mid=low+(high-low)/2;
