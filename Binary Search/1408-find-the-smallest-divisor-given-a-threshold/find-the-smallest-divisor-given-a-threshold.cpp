@@ -1,30 +1,34 @@
 class Solution {
 public:
-    bool checkThreshold(vector<int> nums, int threshold, int divisor){
-        int sum=0;
-        for(int i=0; i<nums.size(); i++){
-            nums[i]= ceil((double)nums[i]/divisor);
-            sum+=nums[i];
+
+    int ceilValue(vector<int>& nums, int divisior){
+        int n=nums.size();
+        int sumVal=0;
+
+        for(int i=0; i<n; i++){
+            sumVal+= ceil((double)nums[i]/divisior);
         }
-        
-        if(sum<=threshold) return true;
-        else
-        return false;
+        return sumVal;
     }
     int smallestDivisor(vector<int>& nums, int threshold) {
-        int s=1;
-        int e= *max_element(nums.begin(), nums.end());
-        int mini= INT_MAX;
-        while(s<e){
-            int mid= s+(e-s)/2;
-            if(checkThreshold(nums,threshold,mid)){
-                mini= min(mini,mid);
-                e=mid;
+        int n=nums.size();
+        if(n>threshold){
+            return -1;
+        }
+        int l=1;
+        int h=*max_element(nums.begin(),nums.end());
+
+        while(l<=h){
+            int mid=l+(h-l)/2;
+            int sumVal=ceilValue(nums,mid);
+
+            if(sumVal<=threshold){
+                h=mid-1;
             }
             else{
-                s=mid+1;
+                l=mid+1;
             }
         }
-        return s;
+        return l;
     }
 };
