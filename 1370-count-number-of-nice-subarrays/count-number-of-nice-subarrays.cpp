@@ -29,8 +29,9 @@ int sum=0;
 int cnt=0;
 
 while(r<nums.size()){
+    if(nums[r]%2==1){
     sum+=nums[r]%2;
-   
+    }
     while(sum>k){
         sum-=nums[l]%2;
         l++;
