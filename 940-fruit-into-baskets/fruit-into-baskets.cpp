@@ -36,7 +36,7 @@ public:
         while(r<n){
             mapp[fruits[r]]++;
     
-        if(mapp.size()>2){
+        while(mapp.size()>2){
             mapp[fruits[l]]--;
             if(mapp[fruits[l]]==0){
                 mapp.erase(fruits[l]);
