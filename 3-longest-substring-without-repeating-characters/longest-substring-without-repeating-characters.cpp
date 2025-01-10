@@ -35,7 +35,7 @@ public:
         int maxlen=0;
         int l=0,r=0;
 
-        while(r<s.length()){
+        for(int r=0; r<s.length(); r++){
             mapp[s[r]]++;
 
             while(mapp[s[r]]>1){
@@ -43,7 +43,7 @@ public:
                 l++;
             }
             maxlen=max(maxlen,r-l+1);
-            r++;
+            // r++;
         }
         return maxlen;
     }
