@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/DSA-CPP/Binary Search/410-split-array-largest-sum",
-      "program": "d:/DSA-CPP/Binary Search/410-split-array-largest-sum/build/Debug/outDebug",
+      "cwd": "d:/DSA-CPP/Strings/2292-counting-words-with-a-given-prefix",
+      "program": "d:/DSA-CPP/Strings/2292-counting-words-with-a-given-prefix/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

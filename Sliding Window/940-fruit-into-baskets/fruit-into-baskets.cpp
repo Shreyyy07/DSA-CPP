@@ -1,17 +1,16 @@
 
-                                            // BRUTE FORCE //
+                              // BRUTE FORCE //
 
 // class Solution {
 // public:
 //     int totalFruit(vector<int>& fruits) {
-//         int maxlen=0;
 
+//         int maxlen=0;
 //         for(int i=0; i<fruits.size(); i++){
-//             set<int>sett;
+//                 set<int>sett;
 //             for(int j=i; j<fruits.size(); j++){
 //                 sett.insert(fruits[j]);
-
-//                 if(sett.size() > 2){
+//                 if(sett.size()>2){
 //                     break;
 //                 }
 //                 else{
@@ -23,34 +22,30 @@
 //     }
 // };
 
-                         // OPTIMIZE APPROACH //
+                             // OPTIMIZE APPROACH //
 
-class Solution {
+ class Solution {
 public:
     int totalFruit(vector<int>& fruits) {
 
-        int l=0,r=0;
-        int maxlen=0;
-        int cnt=0;
         unordered_map<int,int>mapp;
+        int maxlen=0;
+        int n=fruits.size();
+        int l=0,r=0;
 
-        while(r<fruits.size()){
+        while(r<n){
             mapp[fruits[r]]++;
-            // cnt++;
-
-            while(mapp.size() > 2){
-                mapp[fruits[l]]--;
-                // cnt--;
-                if(mapp[fruits[l]]==0){
-                    mapp.erase(fruits[l]);
-                }
-                l++;
+    
+        while(mapp.size()>2){
+            mapp[fruits[l]]--;
+            if(mapp[fruits[l]]==0){
+                mapp.erase(fruits[l]);
             }
-            if(mapp.size()<=2){
-                maxlen=max(maxlen,r-l+1);
+            l++;
         }
-                r++;
+        maxlen=max(maxlen,r-l+1);
+        r++;
         }
         return maxlen;
     }
-};
+ };                            

@@ -1,53 +1,55 @@
 
-                                   // BRUTE FORCE //
+                             //Brute babu ki jai//
 
 // class Solution {
 // public:
 //     int subarraysWithKDistinct(vector<int>& nums, int k) {
+
 //         int cnt=0;
 //         for(int i=0; i<nums.size(); i++){
-//             unordered_map<int,int>hash;
+//             unordered_map<int,int>mapp;
 //             for(int j=i; j<nums.size(); j++){
-//                 hash[nums[j]]++;
-//                 if(hash.size()==k){
-//                     cnt++;
-//                 }
-//                 else if(hash.size()>k){
-//                     break;
-//                 }
+//                 mapp[nums[j]]++;
+//            if(mapp.size()==k){
+//             cnt++;
+//            }
+//             else if(mapp.size()>k){
+//                 break;
 //             }
+//         }
 //         }
 //         return cnt;
 //     }
 // };
 
-                               // OPTIMIZE APPROACH //
+                            //OPTIMIZED APPROACH//
 class Solution {
- public:
+public:
+int solve(vector<int>& nums, int k){
 
- int solve(vector<int>& nums, int k){
-    int l=0,r=0;
+    int l=0;
+    int r=0;
     int cnt=0;
-    int sum=0;
     unordered_map<int,int>mapp;
-
     while(r<nums.size()){
         mapp[nums[r]]++;
 
-        while( l<=r && mapp.size() > k){
-           mapp[nums[l]]--;
-           if(mapp[nums[l]]==0){
+        while(mapp.size()>k){
+            mapp[nums[l]]--;
+            if(mapp[nums[l]]==0){
             mapp.erase(nums[l]);
-           }
+        }
             l++;
         }
-            cnt+=r-l+1;
+        cnt+=r-l+1;
         r++;
     }
     return cnt;
- }
+}
     int subarraysWithKDistinct(vector<int>& nums, int k) {
-        return solve(nums,k)-solve(nums,k-1);
+        int ans=solve(nums,k)-solve(nums,k-1);
+
+        return ans;
     }
-};
-                            
+    };
+
