@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/DSA-CPP/Strings/2292-counting-words-with-a-given-prefix",
-      "program": "d:/DSA-CPP/Strings/2292-counting-words-with-a-given-prefix/build/Debug/outDebug",
+      "cwd": "d:/DSA-CPP/Sliding Window/424-longest-repeating-character-replacement",
+      "program": "d:/DSA-CPP/Sliding Window/424-longest-repeating-character-replacement/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
