@@ -1,16 +1,37 @@
+
+                            // BRUTE FORCE //
+
+// class Solution {
+// public:
+//     int maxSubArray(vector<int>& nums) {
+      
+//         int max_sum=INT_MIN;
+
+//         for(int i=0; i<nums.size(); i++){
+//               int sum=0;
+//             for(int j=i; j<nums.size(); j++){
+//             sum+=nums[j];
+//             max_sum=max(max_sum,sum);
+//         }
+//         }
+//         return max_sum;
+//     }
+// };
+
+                             // OPTIMIZE APPROACH //
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        int maxSum=INT_MIN;
-          int currSum=0;
+        int sum=0;
+        int max_sum=INT_MIN;
+
         for(int i=0; i<nums.size(); i++){
-                currSum+=nums[i];
-             maxSum=max(maxSum,currSum);
-        if(currSum<0){
-            currSum=0;
+            sum+=nums[i];
+            max_sum=max(max_sum,sum);
+            if(sum<0){
+                sum=0;
+            }
         }
-        }
-     return maxSum;
+        return max_sum;
     }
-   
-};
+    };                         
