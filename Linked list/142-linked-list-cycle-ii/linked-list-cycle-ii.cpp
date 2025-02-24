@@ -8,24 +8,32 @@
  */
 class Solution {
 public:
- ListNode *detectCycle(ListNode *head) {
-        ListNode* slow=head;
-        ListNode* fast=head;
+    ListNode *validCycle(ListNode *head) {
+        ListNode *slow=head;
+        ListNode *fast=head;
 
         while(fast!=NULL && fast->next!=NULL){
             slow=slow->next;
             fast=fast->next->next;
 
-        if(slow==fast){
-            slow=head;
-    
-        while(slow!=fast){
-            slow=slow->next;
-            fast=fast->next;
+            if(slow==fast){
+                return slow;
+            }
         }
-     return slow; 
-}
-}
-return NULL;
- }
+        return NULL;
+    }
+
+    ListNode *detectCycle(ListNode *head) {
+        ListNode* slow=head;
+        ListNode* intersection=validCycle(head);
+
+        if(intersection==NULL){
+            return NULL;
+        }
+        while(slow!=intersection){
+            slow=slow->next;
+            intersection=intersection->next;
+        }
+        return slow;
+    }
 };
