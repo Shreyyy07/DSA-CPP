@@ -23,7 +23,9 @@ ListNode* middleElement(ListNode* head){
 
 ListNode* reverseList(ListNode* head){
 
-    // ListNode* mid=middleElement(head);
+    if(head==NULL || head->next==NULL){
+            return head;
+        }
     ListNode* prev=NULL;
     ListNode* curr=head;
     
@@ -38,24 +40,32 @@ ListNode* reverseList(ListNode* head){
 }
     bool isPalindrome(ListNode* head) {
 
-        //get the middle element//
+        if(head==NULL && head->next==NULL){
+            return true;
+        }
+        // 1.) get the middle element //
         ListNode* mid=middleElement(head);
 
+        // 2.) reverse the right half //
         ListNode* temp=mid->next;
         mid->next=reverseList(temp);
 
+        // 3.) compare the both halves //
         ListNode* head1=head;
         ListNode* head2=mid->next;
 
         while(head2!=NULL){
+            // move forward as the values match //
             if(head1->val==head2->val){
                 head1=head1->next;
                 head2=head2->next;
             }
+            // if any one of the value doesnot match return false //
             else{
                 return false;
             }
         }
+        // 4.) now again reverse the right side of the list //
         temp=mid->next;
         mid->next=reverseList(temp);
         return true;
