@@ -56,6 +56,7 @@ ListNode* reverseList(ListNode* head){
                 return false;
             }
         }
+        temp=mid->next;
         mid->next=reverseList(temp);
         return true;
     }
