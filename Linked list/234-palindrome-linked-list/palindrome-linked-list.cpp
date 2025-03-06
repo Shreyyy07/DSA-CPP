@@ -9,65 +9,65 @@
  * };
  */
 class Solution {
+public:
+ListNode* middleElement(ListNode* head){
+    ListNode* slow=head;
+    ListNode* fast=head->next;
 
-    private:
-    ListNode* getMid(ListNode* head){
-        ListNode* slow=head;
-        ListNode* fast=head->next;
-
-        while(fast!=NULL && fast->next!=NULL){
-            slow=slow->next;
-            fast=fast->next->next;
-        }
-        return slow;
+    while(fast!=NULL && fast->next!=NULL){
+        slow=slow->next;
+        fast=fast->next->next;
     }
+    return slow;
+}
 
-    ListNode* reverse(ListNode* head){
+ListNode* reverseList(ListNode* head){
 
+    if(head==NULL || head->next==NULL){
+            return head;
+        }
     ListNode* prev=NULL;
     ListNode* curr=head;
-    ListNode* next=NULL;
-
+    
     while(curr!=NULL){
-        next=curr->next;
+        ListNode* forward=curr->next;
         curr->next=prev;
         prev=curr;
-        curr=next;
+        curr=forward;
     }
     return prev;
-    }
 
-
-public:
+}
     bool isPalindrome(ListNode* head) {
-        if(head->next==NULL){
+
+        if(head==NULL && head->next==NULL){
             return true;
         }
+        // 1.) get the middle element //
+        ListNode* mid=middleElement(head);
 
-        // get the middle element
-        ListNode* middle=getMid(head);
+        // 2.) reverse the right half //
+        ListNode* temp=mid->next;
+        mid->next=reverseList(temp);
 
-        // reverse the list after the mid
-        ListNode* temp=middle->next;
-        middle->next=reverse(temp);
-
-        // comapre the two lists
+        // 3.) compare the both halves //
         ListNode* head1=head;
-        ListNode* head2=middle->next;
+        ListNode* head2=mid->next;
 
         while(head2!=NULL){
-            if(head1->val!=head2->val){
+            // move forward as the values match //
+            if(head1->val==head2->val){
+                head1=head1->next;
+                head2=head2->next;
+            }
+            // if any one of the value doesnot match return false //
+            else{
                 return false;
             }
-            else{
-            head1=head1->next;
-            head2=head2->next;
-            }
         }
-        // again reverse the lsit
-        temp=middle->next;
-        middle->next=reverse(temp);
+        // 4.) now again reverse the right side of the list //
+        temp=mid->next;
+        mid->next=reverseList(temp);
         return true;
-
     }
 };
