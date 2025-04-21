@@ -1,51 +1,52 @@
-
-                              // BRUTE FORCE //
+                                         // BRUTE FORCE //
 
 // class Solution {
 // public:
 //     int totalFruit(vector<int>& fruits) {
+        
+//         int n=fruits.size();
+//         int maxi=0;
 
-//         int maxlen=0;
-//         for(int i=0; i<fruits.size(); i++){
-//                 set<int>sett;
-//             for(int j=i; j<fruits.size(); j++){
+//         for(int i=0; i<n; i++){
+//             set<int>sett;
+//             for(int j=i; j<n; j++){
 //                 sett.insert(fruits[j]);
-//                 if(sett.size()>2){
-//                     break;
+
+//                 if(sett.size()<=2){
+//                     maxi=max(maxi,j-i+1);
 //                 }
 //                 else{
-//                     maxlen=max(maxlen,j-i+1);
+//                     break;
 //                 }
 //             }
 //         }
-//         return maxlen;
+//         return maxi;
 //     }
 // };
 
-                             // OPTIMIZE APPROACH //
 
- class Solution {
+class Solution {
 public:
     int totalFruit(vector<int>& fruits) {
-
-        unordered_map<int,int>mapp;
-        int maxlen=0;
+        
         int n=fruits.size();
+        unordered_map<int,int>mapp;
+        int maxi=0;
         int l=0,r=0;
 
-        while(r<n){
+        while(r<fruits.size()){
             mapp[fruits[r]]++;
-    
-        while(mapp.size()>2){
-            mapp[fruits[l]]--;
-            if(mapp[fruits[l]]==0){
-                mapp.erase(fruits[l]);
+
+            if(mapp.size()>2){
+                mapp[fruits[l]]--;
+                if(mapp[fruits[l]]==0){
+                    mapp.erase(fruits[l]);
+                }
+                l++;
             }
-            l++;
+            maxi=max(maxi,r-l+1);
+            r++;
         }
-        maxlen=max(maxlen,r-l+1);
-        r++;
-        }
-        return maxlen;
+        return maxi;
     }
- };                            
+};
