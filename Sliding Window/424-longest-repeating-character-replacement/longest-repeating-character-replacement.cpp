@@ -1,5 +1,4 @@
-
-                             // BRUTE FORCE //
+                                     // BRUTER FORCE //
 
 // class Solution {
 // public:
@@ -7,50 +6,51 @@
 
 //         int n=s.length();
 //         int maxlen=0;
-//         int maxfreq=0;
-//         int change;
+//         int maxF=0;
+//         int char_change;
 
-//         for(int i=0; i<s.length(); i++){
-//             int hash[26]={0};
-//             for(int j=i; j<s.length(); j++){
+//         for(int i=0; i<n; i++){
+//            int hash[26]={0};
+//             for(int j=i; j<n; j++){
 //                 hash[s[j]-'A']++;
-
-//                 maxfreq=max(maxfreq,hash[s[j]-'A']);
-//                 change=(j-i+1)-maxfreq;
-//                 if(change<=k){
-//                     maxlen=max(maxlen,j-i+1);
-//                 }
-//                 else{
-//                     break;
-//                 }
-//             }
+//                 maxF=max(maxF,hash[s[j]-'A']);
+//                 char_change=(j-i+1)-maxF;
+        
+//         if(char_change<=k){
+//             maxlen=max(maxlen,j-i+1);
+//         }
+//         else{
+//             break;
+//         }
+//         }
 //         }
 //         return maxlen;
+        
 //     }
 // };
 
-                            // OPTIMIZE APPROACH //
 class Solution {
 public:
     int characterReplacement(string s, int k) {
 
-        int l=0,r=0;
+        int n=s.length();
         int maxlen=0;
-        int maxfreq=0;
-        int change;
+        int maxF=0;
         unordered_map<char,int>mapp;
+        int char_change;
+        int l=0,r=0;
 
-        while(r<s.length()){
+        while(r<n){
             mapp[s[r]]++;
-            maxfreq=max(maxfreq,mapp[s[r]]);
-            change=(r-l+1)-maxfreq;
+             maxF=max(maxF,mapp[s[r]]);
+             char_change=(r-l+1)-maxF;
 
-            if(change>k){
+             if(char_change>k){
                 mapp[s[l]]--;
                 l++;
-            }
-            maxlen=max(maxlen,r-l+1);
-            r++;
+             }
+             maxlen=max(maxlen,r-l+1);
+             r++;
         }
         return maxlen;
     }
