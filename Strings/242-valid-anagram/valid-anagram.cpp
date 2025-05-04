@@ -1,21 +1,21 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        unordered_map<char,int>count;
 
-        if (s.length() != t.length()) {
+        if(s.length()!=t.length()){
             return false;
         }
 
-        for(auto x:s){
-            count[x]++;
+        int freq[26]={0};
+        for(char x : s){
+            freq[x -'a']++;
+        }
+            for(auto x : t){
+                freq[x - 'a']--;
         }
 
-        for(auto x:t){
-            count[x]--;
-        }
-        for(auto x:count){
-            if(x.second!=0){
+        for(int i=0; i<26; i++){
+            if(freq[i]!=0){
                 return false;
             }
         }
