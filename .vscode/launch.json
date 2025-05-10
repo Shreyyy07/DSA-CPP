@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/DSA-CPP/Arrays/169-majority-element",
-      "program": "d:/DSA-CPP/Arrays/169-majority-element/build/Debug/outDebug",
+      "cwd": "d:/DSA-CPP/Arrays/2048-build-array-from-permutation",
+      "program": "d:/DSA-CPP/Arrays/2048-build-array-from-permutation/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
