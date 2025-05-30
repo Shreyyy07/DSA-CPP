@@ -5,18 +5,18 @@ public:
         string ans="";
         int depth=0;
 
-        for(char ch:s){
+        for(int i=0; i<s.length(); i++){
 
-            if(ch=='('){
+            if(s[i]=='('){
                 if(depth>0){
-                ans.push_back(ch);
+                ans.push_back(s[i]);
                 }
                 depth++;
             }
-            else if(ch==')'){
+            else if(s[i]==')'){
                  depth--;
                if(depth>0){
-                ans.push_back(ch);
+                ans.push_back(s[i]);
                }
             }
         }
