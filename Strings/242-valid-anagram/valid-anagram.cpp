@@ -7,14 +7,14 @@ public:
         }
 
         int freq[26]={0};
-        for(char x : s){
-            freq[x -'a']++;
+        for(int i=0; i<s.length(); i++){
+            freq[s[i]-'a']++;
         }
-            for(auto x : t){
-                freq[x - 'a']--;
+        for(int i=0; i<t.length(); i++){
+            freq[t[i]-'a']--;
         }
 
-        for(int i=0; i<26; i++){
+        for(int i; i<26; i++){
             if(freq[i]!=0){
                 return false;
             }
