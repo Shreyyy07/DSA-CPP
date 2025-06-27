@@ -10,7 +10,7 @@
  */
 class Solution {
 public:
-ListNode* middleElement(ListNode* head){
+ListNode* mid(ListNode* head){
     ListNode* slow=head;
     ListNode* fast=head->next;
 
@@ -21,53 +21,43 @@ ListNode* middleElement(ListNode* head){
     return slow;
 }
 
-ListNode* reverseList(ListNode* head){
+ListNode* reverse(ListNode* head){
 
-    if(head==NULL || head->next==NULL){
-            return head;
-        }
-    ListNode* prev=NULL;
     ListNode* curr=head;
-    
-    while(curr!=NULL){
-        ListNode* forward=curr->next;
-        curr->next=prev;
-        prev=curr;
-        curr=forward;
-    }
-    return prev;
+    ListNode* prev=NULL;
 
+        while(curr!=NULL){
+            ListNode* front=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=front;
+        }
+        return prev;
 }
+
     bool isPalindrome(ListNode* head) {
 
-        if(head==NULL && head->next==NULL){
-            return true;
-        }
-        // 1.) get the middle element //
-        ListNode* mid=middleElement(head);
+        ListNode* middle=mid(head);
 
-        // 2.) reverse the right half //
-        ListNode* temp=mid->next;
-        mid->next=reverseList(temp);
+        ListNode* curr=middle->next;
+        middle->next=reverse(curr);
 
-        // 3.) compare the both halves //
         ListNode* head1=head;
-        ListNode* head2=mid->next;
+        ListNode* head2=middle->next;
 
         while(head2!=NULL){
-            // move forward as the values match //
-            if(head1->val==head2->val){
-                head1=head1->next;
-                head2=head2->next;
-            }
-            // if any one of the value doesnot match return false //
-            else{
-                return false;
-            }
+        if(head1->val==head2->val){
+            head1=head1->next;
+            head2=head2->next;
         }
-        // 4.) now again reverse the right side of the list //
-        temp=mid->next;
-        mid->next=reverseList(temp);
+        else{
+        return false;
+        }
+        }
+        // curr=middle->next;
+        middle->next=reverse(curr);
         return true;
+        
+
     }
 };
