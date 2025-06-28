@@ -19,20 +19,18 @@ public:
             }
             temp=temp->next;
         }
-
-        ListNode* prev=NULL;
         ListNode* curr=head;
-        ListNode* forward=NULL;
+        ListNode* prev=NULL;
+        ListNode* front=NULL;
         int cnt=0;
-
-        while(curr!=NULL && cnt<k){
-            forward=curr->next;
-            curr->next=prev;
-            prev=curr;
-            curr=forward;
-            cnt++;
-        }
-        head->next=reverseKGroup(forward,k);
+            while(curr!=NULL && cnt<k){
+                front=curr->next;
+                curr->next=prev;
+                prev=curr;
+                curr=front;
+                cnt++;
+            }
+            head->next=reverseKGroup(front,k);
         return prev;
     }
 };
