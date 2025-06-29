@@ -1,55 +1,56 @@
-
-                             //Brute babu ki jai//
-
 // class Solution {
 // public:
 //     int subarraysWithKDistinct(vector<int>& nums, int k) {
 
+//         int n=nums.size();
 //         int cnt=0;
-//         for(int i=0; i<nums.size(); i++){
+        
+//         for(int i=0; i<n; i++){
 //             unordered_map<int,int>mapp;
-//             for(int j=i; j<nums.size(); j++){
+//             for(int j=i; j<n; j++){
 //                 mapp[nums[j]]++;
-//            if(mapp.size()==k){
-//             cnt++;
-//            }
-//             else if(mapp.size()>k){
-//                 break;
+//                 if(mapp.size()==k){
+//                     cnt++;
+//                 }
+//                 else if(mapp.size()>k){
+//                     break;
+//                 }
 //             }
 //         }
-//         }
 //         return cnt;
+
 //     }
 // };
 
-                            //OPTIMIZED APPROACH//
+
 class Solution {
 public:
 int solve(vector<int>& nums, int k){
 
-    int l=0;
-    int r=0;
-    int cnt=0;
-    unordered_map<int,int>mapp;
-    while(r<nums.size()){
-        mapp[nums[r]]++;
+        int n=nums.size();
+        int cnt=0;
+        int l=0,r=0;
+        unordered_map<int,int>mapp;
 
-        while(mapp.size()>k){
-            mapp[nums[l]]--;
-            if(mapp[nums[l]]==0){
-            mapp.erase(nums[l]);
+        while(r<n){
+            mapp[nums[r]]++;
+            while(mapp.size()>k){
+                mapp[nums[l]]--;                
+                if(mapp[nums[l]]==0){
+                    mapp.erase(nums[l]);
+                }
+                l++;
+            }
+            cnt+=r-l+1;
+            r++;
         }
-            l++;
-        }
-        cnt+=r-l+1;
-        r++;
-    }
-    return cnt;
+        return cnt;
 }
     int subarraysWithKDistinct(vector<int>& nums, int k) {
-        int ans=solve(nums,k)-solve(nums,k-1);
 
-        return ans;
+    int x=solve(nums,k);
+    int y=solve(nums,k-1);
+
+    return x-y;
     }
-    };
-
+}; 

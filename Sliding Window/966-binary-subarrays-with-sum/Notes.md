@@ -1,1 +1,1 @@
-<h2>binary-subarrays-with-sum Notes</h2><hr>[ Time taken: 16 m 3 s ]
+<h2>binary-subarrays-with-sum Notes</h2><hr>[ Time taken: 13 m 25 s ]

@@ -1,5 +1,3 @@
-                                         // BRUTE FORCE //
-
 // class Solution {
 // public:
 //     int totalFruit(vector<int>& fruits) {
@@ -11,12 +9,11 @@
 //             set<int>sett;
 //             for(int j=i; j<n; j++){
 //                 sett.insert(fruits[j]);
-
-//                 if(sett.size()<=2){
-//                     maxi=max(maxi,j-i+1);
+//                 if(sett.size()>2){
+//                     break;
 //                 }
 //                 else{
-//                     break;
+//                     maxi=max(maxi,j-i+1);
 //                 }
 //             }
 //         }
@@ -24,27 +21,28 @@
 //     }
 // };
 
-
 class Solution {
 public:
     int totalFruit(vector<int>& fruits) {
-        
-        int n=fruits.size();
-        unordered_map<int,int>mapp;
-        int maxi=0;
-        int l=0,r=0;
 
-        while(r<fruits.size()){
+        int n=fruits.size();
+        int l=0,r=0;
+        int maxi=0;
+        unordered_map<int,int>mapp;
+
+        while(r<n){
             mapp[fruits[r]]++;
 
             if(mapp.size()>2){
-                mapp[fruits[l]]--;
+                 mapp[fruits[l]]--;
                 if(mapp[fruits[l]]==0){
                     mapp.erase(fruits[l]);
                 }
                 l++;
             }
-            maxi=max(maxi,r-l+1);
+            else{
+                maxi=max(maxi,r-l+1);
+            }
             r++;
         }
         return maxi;
