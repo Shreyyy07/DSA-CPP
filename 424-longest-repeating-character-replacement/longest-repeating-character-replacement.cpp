@@ -37,12 +37,12 @@ public:
         int maxLen=0;
 
         while(r<n){
-            mapp[s[r]-'A']++;
-            maxF=max(maxF,mapp[s[r]-'A']);
+            mapp[s[r]]++;
+            maxF=max(maxF,mapp[s[r]]);
             change=(r-l+1)-maxF;
 
             if(change>k){
-                mapp[s[l]-'A']--;
+                mapp[s[l]]--;
                 l++;
             }
             else{
