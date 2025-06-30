@@ -1,1 +1,0 @@
-<h2>longest-common-prefix Notes</h2><hr>[ Time taken: 7 m 20 s ]

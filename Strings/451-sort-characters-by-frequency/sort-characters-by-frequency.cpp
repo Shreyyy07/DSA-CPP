@@ -2,22 +2,16 @@ class Solution {
 public:
     string frequencySort(string s) {
         
-       vector<pair<int, char>> hash('z' + 1, {0, 0});
-        
-        // Count frequency of each character
-        for (char c : s) {
-            hash[c] = {hash[c].first + 1, c};
+        vector<pair<int,char>>hash('z'+1,{0,0});
+
+        for(char i:s){
+            hash[i]={hash[i].first+1,i};
         }
-
-        // Sort by frequency (ascending order)
-        sort(hash.begin(), hash.end());
-
-        // Build result string in reverse order (to simulate descending frequency)
-        string res = "";
-        for (auto p : hash) {
-            res = string(p.first, p.second) + res;
-        }
-
-        return res;
+            sort(hash.begin(),hash.end());
+            string ans="";
+            for(auto i:hash){
+                ans=string(i.first,i.second)+ans;
+            }
+        return ans;
     }
 };

@@ -1,24 +1,25 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
+        
+        int hash[26]={0};
 
         if(s.length()!=t.length()){
             return false;
         }
 
-        int freq[26]={0};
         for(int i=0; i<s.length(); i++){
-            freq[s[i]-'a']++;
+            hash[s[i]-'a']++;
         }
-        for(int i=0; i<t.length(); i++){
-            freq[t[i]-'a']--;
+        for(int j=0; j<t.length(); j++){
+            hash[t[j]-'a']--;
         }
 
-        for(int i; i<26; i++){
-            if(freq[i]!=0){
-                return false;
+        for(int i=0; i<26; i++){
+            if(hash[i]!=0){
+                return 0;
             }
         }
-        return true;
+        return 1;
     }
 };
