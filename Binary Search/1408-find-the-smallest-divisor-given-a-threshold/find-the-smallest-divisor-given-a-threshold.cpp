@@ -1,34 +1,33 @@
 class Solution {
 public:
 
-    int ceilValue(vector<int>& nums, int divisior){
-        int n=nums.size();
-        int sumVal=0;
+int divisor(vector<int>& nums, int threshold){
 
-        for(int i=0; i<n; i++){
-            sumVal+= ceil((double)nums[i]/divisior);
-        }
-        return sumVal;
+    int n=nums.size();
+    int divi=0;
+    for(int i=0; i<n; i++){
+        divi+=ceil((double)nums[i]/(double)threshold);
     }
+    return divi;
+}
     int smallestDivisor(vector<int>& nums, int threshold) {
-        int n=nums.size();
-        if(n>threshold){
-            return -1;
-        }
+        
         int l=1;
         int h=*max_element(nums.begin(),nums.end());
+        int ans;
 
         while(l<=h){
             int mid=l+(h-l)/2;
-            int sumVal=ceilValue(nums,mid);
+            int smallDivi=divisor(nums,mid);
 
-            if(sumVal<=threshold){
+            if(smallDivi<=threshold){
+                ans=mid;
                 h=mid-1;
             }
             else{
                 l=mid+1;
             }
         }
-        return l;
+        return ans;
     }
 };

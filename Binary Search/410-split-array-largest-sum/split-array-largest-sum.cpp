@@ -1,33 +1,34 @@
 class Solution {
 public:
 
-int countSubarray(vector<int>& nums, int maxEle){
+int maxNumber(vector<int>& nums, int k){
 
-    int split=1;
-    int subarr=0;
-    for(int i=0; i<nums.size(); i++){
-        if(subarr + nums[i]<=maxEle){
-            subarr+=nums[i];
+    int n=nums.size();
+    int partition=1;
+    int subArr=0;
+    for(int i=0; i<n; i++){
+        if(subArr+nums[i]<=k){
+            subArr+=nums[i];
         }
         else{
-            split++;
-            subarr=nums[i];
+            partition++;
+            subArr=nums[i];
         }
     }
-    return split;
+    return partition;
 }
-
     int splitArray(vector<int>& nums, int k) {
         
-        int n=nums.size();
         int l=*max_element(nums.begin(),nums.end());
         int h=accumulate(nums.begin(),nums.end(),0);
+        int ans;
 
         while(l<=h){
             int mid=l+(h-l)/2;
-            int res=countSubarray(nums,mid);
+            int mini=maxNumber(nums,mid);
 
-            if(res<=k){
+            if(mini<=k){
+                ans=mid;
                 h=mid-1;
             }
             else{
