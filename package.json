@@ -1,0 +1,33 @@
+{
+  "name": "dsa-cpp-chatbot",
+  "version": "1.0.0",
+  "description": "Chatbot interface with action buttons for translation, improvement, image to text, and image generation",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "chatbot",
+    "ui",
+    "interface",
+    "translate",
+    "improve",
+    "image-to-text",
+    "image-generation"
+  ],
+  "author": "DSA-CPP",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.9.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

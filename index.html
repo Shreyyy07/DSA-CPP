@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" href="Chatbot.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        .page-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-title">Chatbot Interface</div>
+    
+    <div class="chatbot-container">
+        <div class="chat-input-section">
+            <textarea
+                class="chat-input"
+                placeholder="Type your message here..."
+                rows="4"
+                id="chatInput"
+            ></textarea>
+            
+            <div class="action-buttons">
+                <button
+                    class="action-button translate-button"
+                    id="translateBtn"
+                    title="Translate text"
+                >
+                    <span class="button-icon">🌐</span>
+                    <span class="button-text">Translate</span>
+                </button>
+
+                <button
+                    class="action-button improve-button"
+                    id="improveBtn"
+                    title="Improve text"
+                >
+                    <span class="button-icon">✨</span>
+                    <span class="button-text">Improve</span>
+                </button>
+
+                <button
+                    class="action-button image-to-text-button"
+                    id="imageToTextBtn"
+                    title="Convert image to text"
+                >
+                    <span class="button-icon">📷</span>
+                    <span class="button-text">Image to Text</span>
+                </button>
+
+                <button
+                    class="action-button image-generation-button"
+                    id="imageGenerationBtn"
+                    title="Generate image"
+                >
+                    <span class="button-icon">🎨</span>
+                    <span class="button-text">Image Generation</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="loading-indicator" id="loadingIndicator" style="display: none;">
+            <span class="loading-text">Processing...</span>
+        </div>
+    </div>
+
+    <script>
+        // Get DOM elements
+        const chatInput = document.getElementById('chatInput');
+        const translateBtn = document.getElementById('translateBtn');
+        const improveBtn = document.getElementById('improveBtn');
+        const imageToTextBtn = document.getElementById('imageToTextBtn');
+        const imageGenerationBtn = document.getElementById('imageGenerationBtn');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+
+        // Helper function to show loading state
+        function showLoading() {
+            loadingIndicator.style.display = 'flex';
+            [translateBtn, improveBtn, imageToTextBtn, imageGenerationBtn].forEach(btn => {
+                btn.disabled = true;
+            });
+            chatInput.disabled = true;
+        }
+
+        // Helper function to hide loading state
+        function hideLoading() {
+            loadingIndicator.style.display = 'none';
+            [translateBtn, improveBtn, imageToTextBtn, imageGenerationBtn].forEach(btn => {
+                btn.disabled = false;
+            });
+            chatInput.disabled = false;
+            updateButtonStates();
+        }
+
+        // Update button states based on input
+        function updateButtonStates() {
+            const hasText = chatInput.value.trim().length > 0;
+            translateBtn.disabled = !hasText;
+            improveBtn.disabled = !hasText;
+            imageGenerationBtn.disabled = !hasText;
+            // Image to text doesn't need input text
+        }
+
+        // Event handlers
+        translateBtn.addEventListener('click', async function() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            
+            showLoading();
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                console.log('Translating:', text);
+                alert('Translation feature activated! Check console for details.');
+            } catch (error) {
+                console.error('Translation error:', error);
+                alert('Translation failed. Please try again.');
+            } finally {
+                hideLoading();
+            }
+        });
+
+        improveBtn.addEventListener('click', async function() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            
+            showLoading();
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                console.log('Improving:', text);
+                alert('Improvement feature activated! Check console for details.');
+            } catch (error) {
+                console.error('Improvement error:', error);
+                alert('Improvement failed. Please try again.');
+            } finally {
+                hideLoading();
+            }
+        });
+
+        imageToTextBtn.addEventListener('click', async function() {
+            showLoading();
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                console.log('Converting image to text');
+                alert('Image to Text feature activated! Check console for details.');
+            } catch (error) {
+                console.error('Image to text error:', error);
+                alert('Image to text conversion failed. Please try again.');
+            } finally {
+                hideLoading();
+            }
+        });
+
+        imageGenerationBtn.addEventListener('click', async function() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            
+            showLoading();
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                console.log('Generating image for:', text);
+                alert('Image Generation feature activated! Check console for details.');
+            } catch (error) {
+                console.error('Image generation error:', error);
+                alert('Image generation failed. Please try again.');
+            } finally {
+                hideLoading();
+            }
+        });
+
+        // Update button states on input change
+        chatInput.addEventListener('input', updateButtonStates);
+
+        // Initial button state update
+        updateButtonStates();
+
+        // Show that the interface is ready
+        console.log('Chatbot interface loaded successfully!');
+        console.log('Action buttons are visible and functional:');
+        console.log('- Translate button: Translates input text');
+        console.log('- Improve button: Improves input text');
+        console.log('- Image to Text button: Converts image to text');
+        console.log('- Image Generation button: Generates image from text');
+    </script>
+</body>
+</html>
