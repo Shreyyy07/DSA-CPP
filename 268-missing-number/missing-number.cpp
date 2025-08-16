@@ -3,20 +3,16 @@ public:
     int missingNumber(vector<int>& nums) {
 
         int n=nums.size();
-        sort(nums.begin(),nums.end());
-
-        if(nums[0]!=0){
-            return 0;
-        }
-        if(nums[n-1]!=n){
-            return n;
-        }
+        vector<int>hash(n+1,0);
 
         for(int i=0; i<n; i++){
-            if(nums[i]!=i){
+            hash[nums[i]]++;
+        }
+        for(int i=0; i<=n; i++){
+            if(hash[i]==0){
                 return i;
             }
         }
-        return 0;
+        return -1;
     }
 };
