@@ -1,37 +1,20 @@
-
-                            // BRUTE FORCE //
-
-// class Solution {
-// public:
-//     int maxSubArray(vector<int>& nums) {
-      
-//         int max_sum=INT_MIN;
-
-//         for(int i=0; i<nums.size(); i++){
-//               int sum=0;
-//             for(int j=i; j<nums.size(); j++){
-//             sum+=nums[j];
-//             max_sum=max(max_sum,sum);
-//         }
-//         }
-//         return max_sum;
-//     }
-// };
-
-                             // OPTIMIZE APPROACH //
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
+        
+        int n=nums.size();
         int sum=0;
-        int max_sum=INT_MIN;
+        int maxi=INT_MIN;
 
-        for(int i=0; i<nums.size(); i++){
+        for(int i=0; i<n; i++){
             sum+=nums[i];
-            max_sum=max(max_sum,sum);
-            if(sum<0){
-                sum=0;
+            if(sum>maxi){
+             maxi=sum;
             }
+           if(sum<0){
+            sum=0;
+           }
         }
-        return max_sum;
+        return maxi;
     }
-    };                         
+};
