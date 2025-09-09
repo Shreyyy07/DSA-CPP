@@ -1,1 +1,1 @@
-<h2>first-unique-character-in-a-string Notes</h2><hr>[ Time taken: 7 m 46 s ]
+<h2>first-unique-character-in-a-string Notes</h2><hr>[ Time taken: 12 m 31 s ]
