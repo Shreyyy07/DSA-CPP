@@ -1,26 +1,25 @@
 class Solution {
 public:
 
-int divisor(vector<int>& nums, int threshold){
+int solve(vector<int>& nums, int threshold){
 
-    int n=nums.size();
-    int divi=0;
-    for(int i=0; i<n; i++){
-        divi+=ceil((double)nums[i]/(double)threshold);
+    int divisor=0;
+    for(int i=0; i<nums.size(); i++){
+        divisor+=ceil((double)nums[i]/(double)threshold);
     }
-    return divi;
+    return divisor;
 }
     int smallestDivisor(vector<int>& nums, int threshold) {
         
+        int ans;
         int l=1;
         int h=*max_element(nums.begin(),nums.end());
-        int ans;
 
         while(l<=h){
             int mid=l+(h-l)/2;
-            int smallDivi=divisor(nums,mid);
+            int small=solve(nums,mid);
 
-            if(smallDivi<=threshold){
+            if(small<=threshold){
                 ans=mid;
                 h=mid-1;
             }
