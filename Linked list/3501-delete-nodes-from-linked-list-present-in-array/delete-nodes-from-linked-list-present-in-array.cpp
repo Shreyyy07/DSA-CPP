@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* modifiedList(vector<int>& nums, ListNode* head) {
-
+        
         unordered_set<int>s(nums.begin(),nums.end());
 
         ListNode* temp=new ListNode(0);
@@ -23,7 +23,6 @@ public:
         while(curr!=NULL){
             if(s.find(curr->val)!=s.end()){
                 prev->next=curr->next;
-
             }
             else{
                 prev=curr;

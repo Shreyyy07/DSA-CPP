@@ -1,26 +1,30 @@
 class Solution {
-  string ans="";
-    void expand(string s,int left,int right){
-      
-        while(left>=0 && right<=s.length() ){
-            if(s[left]==s[right]){
-                left--;
-                right++;
-            }
-            else{
-                break;
-            }
+// public:
+
+string ans="";
+void expand(string s, int l, int r){
+
+    int n=s.length();
+    while(l>=0 && r<=n){
+        if(s[l]==s[r]){
+        l--;
+        r++;
         }
-        if(ans.size()<right-left){
-            ans=s.substr(left+1,right-left-1);
+        else{
+            break;
         }
     }
+    if(ans.size() < r-l){
+        ans=s.substr(l+1,r-l-1);
+    }
+}
 public:
     string longestPalindrome(string s) {
+        
         for(int i=0; i<s.length(); i++){
-        expand(s,i,i);
-        expand(s,i,i+1);
-    }
-    return ans;
+            expand(s,i,i);
+            expand(s,i,i+1);
+        }
+        return ans;
     }
 };

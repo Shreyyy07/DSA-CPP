@@ -1,35 +1,36 @@
 class Solution {
 public:
     int myAtoi(string s) {
+        
+        int n=s.length();
 
-        // removing the white sapces //
         int i=0;
-        while(i<s.length() && s[i]==' '){
-            //  if (i == s.size()) return 0;
+        while(i<n && s[i]==' '){
             i++;
         }
-        // sign conversion //
-        int sign=1;
-        if(s[i]=='-'){
-            sign=-1;
+        int num=1;
+        if(s[i]=='+'){
             i++;
         }
-        else if(s[i]=='+'){
+        else if(s[i]=='-'){
+            num=-1;   
             i++;
         }
 
         long ans=0;
-        while(i<s.length() && s[i]>='0' && s[i]<='9'){
-            // formula for converting char to number //
-             ans=ans*10+(s[i]-'0');
-
-            if(sign*ans<INT_MIN )
-                return INT_MIN;
+            while(i<n && s[i]>='0' && s[i]<='9'){
+                ans=ans*10+(s[i]-'0');
             
-            if(sign*ans>INT_MAX)
-                return INT_MAX;
-             i++;
+            if(ans*num<INT_MIN){
+                return INT_MIN;
+
+            }
+            
+            if(ans*num>INT_MAX){
+                return INT_MAX; 
+            }
+            i++;
         }
-        return (int)(sign*ans);
+        return (int)(ans*num);
     }
 };
